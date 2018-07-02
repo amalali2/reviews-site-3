@@ -40,10 +40,12 @@ public class ReviewSiteFullStackController {
 		return "category";
 	}
 	
-	@RequestMapping("/index.html")
-    public String index() {
-        return "index.html";
+        @RequestMapping("/index")
+        public String home(Model model) {
+            return "index";
     
-    }
-
+        
+    } 
 }
+
+
