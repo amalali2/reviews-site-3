@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet"/>
+    <title>Landing Page</title>
+  </head>
+  <body>
+    <STYLE>A {text-decoration: none;} </STYLE>
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">MENU</button>
+        <div id="myDropdown" class="dropdown-content">
+          		<a href="http://localhost:8080/reviews">Home</a>
+          		<a href="http://localhost:8080/reviews.html">Reviews</a>
+          		<a href="http://localhost:8080/categories.html">Categories</a>
+  	   </div>
+              <script>
+                function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+                    }
+
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                                        }
+                                      }
+                                    }
+                                  }
+                </script>
+    </div>
+    <div class = "headline">
+        <h1> For foodies that like to <br> keep it zabihah 🕌 </h1>
+        <p> New city? New diet?
+            Looking to expand your pallette? <br>
+            You're in the right place. </p>
+    </div>
+    <div class = "workbuttoncontainer">
+    <div class = "workbutton">
+        <a href="http://localhost:8080/reviews.html"><p class = "btext">Reviews &#8594;</p></a>
+    </div>
+    <div class = "workbutton">
+        <a href="http://localhost:8080/categories.html"><p class = "btext">Categories &#8594; </p></a>
+    </div>
+  </div>
+  </body>
+</html>

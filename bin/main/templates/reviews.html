@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/listlayout.css}"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300" rel="stylesheet" />
+	<title>Reviews</title>
+</head>
+<body>
+	<div class="topnav">
+		<a href="http://localhost:8080/index.html">Home</a>
+		<a href="http://localhost:8080/reviews.html">Reviews</a>
+		<a href="http://localhost:8080/categories.html">Categories</a>
+	</div>
+<div class = "header">
+		<p>a list of the reviews we have so far..
+				<strong>don't</strong> see a restaraunt you think deserves a spot?
+				</p>
+			<a href="mailto:request@halalgrail.ca">Email Us.</a>
+</div>
+	<ul>
+
+		<li th:each="review:${reviews}">
+
+        <a th:href="|@{/reviews/}${review.id}|">
+      <div class="flex-container">  <span th:text="${review.title}"></span></div>
+         </a>
+
+		</li>
+
+	</ul>
+
+</body>
+</html>

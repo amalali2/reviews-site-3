@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reviews By Category</title>
+    <link class="layout" rel="stylesheet" type="text/css" href="/css/listlayout.css"/>
+</head>
+
+<body>
+    <h1>Reviews By Category</h1>
+	
+	 <section th:each="review : ${review}">
+    
+    	<p th:text = "'Category: ' + ${review.category}"></p>
+    	<img th:src="${review.imgUrl}" />
+    	<h2 th:text = "${review.title}" ></h2>
+    	<p th:text = "${review.content}"></p>
+    	    	
+    </section>
+    
+    	
+</body>
+</html>
