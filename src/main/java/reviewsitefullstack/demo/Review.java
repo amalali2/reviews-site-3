@@ -1,10 +1,15 @@
 package reviewsitefullstack.demo;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -17,22 +22,26 @@ public class Review {
 	
 	@Lob
 	private String content;
-	private int stars;
-
+	
 	@ManyToOne
 	private Category category;
 	
+	@OneToMany(mappedBy = "review")
+	private List<Comment> comments;
+	
+	@ManyToMany(mappedBy = "reviews")
+	private Collection<Tag> tags;
+	
 	private Review() {}
 
-
-	public Review(Long id, String title, String imgUrl, String content, Category category, int stars) {
+	public Review(Long id, String title, String imgUrl, String content, Category category) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.imgUrl = imgUrl;
 		this.content = content;
 		this.category = category;
-		this.stars = stars;
+		
 	}
 
 	public Long getId() {
@@ -53,19 +62,19 @@ public class Review {
 		return content;
 	}
 
-	public int getStars() {
-		return stars;
-	}
 
 	public Category getCategory() {
 		return category;
+	}
+	
+	public List<Comment> getComments() {
+		return comments;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", title=" + title + ", imgUrl=" + imgUrl + ", content=" + content + ", stars="
-				+ stars + ", category=" + category + "]";
+		return "Review [id=" + id + ", title=" + title + ", imgUrl=" + imgUrl + ", content=" + content + category ;
 	}
 	
 }
